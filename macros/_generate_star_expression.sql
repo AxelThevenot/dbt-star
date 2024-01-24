@@ -1,10 +1,11 @@
-{%- macro _generate_star_expression(node, except) -%}
+{%- macro _generate_star_expression(node, except, alias) -%}
 {#-
     Generates a star expression of a node.
 
     Args:
         node (dict): The dbt node configuration.
         except (optional[list[str]]): A list of columns to exclude from the generated select expressions.
+        alias (optional[str]): The alias name to reference columns if passed.
 
     Returns:
         str: A comma-separated string of column names during execution.
@@ -33,7 +34,7 @@
 
 {#- Generate the comma-separated list of columns -#}
 {%- for column in not_except_columns %}
-    {{- column -}}{{- ',\n' if not loop.last else '' }}
+    {{- '' if alias is none else alias ~ '.' }}{{- column -}}{{- ',\n' if not loop.last else '' }}
 {%- endfor %}
 
 {%- endmacro %}
