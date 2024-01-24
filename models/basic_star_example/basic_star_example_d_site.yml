@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: basic_star_example_d_site
+    columns:
+      - name: site_id
+      - name: site_name
+      - name: address
+      - name: open_date
+      - name: ingested_at
