@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: basic_star_example_source
+    database: my_database
+    schema: my_schema
+    tables:
+      - name: d_site
+        identifier: d_site
+        columns:
+          - name: site_id
+          - name: site_name
+          - name: address
+          - name: open_date
